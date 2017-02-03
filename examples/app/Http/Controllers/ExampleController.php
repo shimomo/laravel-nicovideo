@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class ExampleController extends Controller
 {
     /**
-     * @return string
+     * @return void
      */
     public function test()
     {
@@ -27,7 +27,6 @@ class ExampleController extends Controller
         ]);
 
         var_dump($result);
-
-        return 'ok';
+        exit;
     }
 }
