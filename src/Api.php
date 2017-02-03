@@ -30,7 +30,7 @@ class Api
      *
      * @var array
      */
-    protected $keys = ['service', 'q', 'targets'];
+    protected $keys = ['service', 'q', 'targets', 'fields', '_sort'];
 
     /**
      * Guzzleのインスタンスを生成
