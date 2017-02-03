@@ -92,6 +92,24 @@ class ApiTest extends PHPUnit_Framework_TestCase
      * @expectedException InvalidArgumentException
      * @return void
      */
+    public function testException3()
+    {
+        $this->api->search([
+            'service' => 'video',
+            'q' => '初音ミク',
+            'fields' => 'contentId,title,viewCounter',
+            'filters[viewCounter][gte]' => '10000',
+            '_sort' => '-viewCounter',
+            '_offset' => 0,
+            '_limit' => 3,
+            '_context' => 'apiguide',
+        ]);
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     * @return void
+     */
     public function testException4()
     {
         $this->api->search([
