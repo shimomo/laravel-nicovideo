@@ -2,9 +2,9 @@
 
 namespace Shimomo\Nicovideo;
 
-use Exception;
 use GuzzleHttp\Client;
 use Illuminate\Support\Collection;
+use InvalidArgumentException;
 
 /**
  * @author shimomo
@@ -26,7 +26,7 @@ class Api
     protected $client;
 
     /**
-     * 必須キーの配列
+     * 必要なキーの配列
      *
      * @var array
      */
@@ -47,14 +47,14 @@ class Api
      *
      * @param  array $parameters
      * @return array
-     * @throws Exception
+     * @throws InvalidArgumentException
      */
     public function search(array $parameters)
     {
         $collection = Collection::make($parameters);
 
         if (Collection::make($this->keys)->diff($collection->keys())->count() !== 0) {
-            throw new Exception('与えられた配列のキーが不足しています。');
+            throw new InvalidArgumentException('Does the necessary key exists?');
         }
 
         $queries = $collection->filter(function ($value) {

@@ -43,7 +43,7 @@ class ApiTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Exception
+     * @expectedException InvalidArgumentException
      * @return void
      */
     public function testException1()
@@ -61,7 +61,7 @@ class ApiTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Exception
+     * @expectedException InvalidArgumentException
      * @return void
      */
     public function testException2()
@@ -79,7 +79,7 @@ class ApiTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Exception
+     * @expectedException InvalidArgumentException
      * @return void
      */
     public function testException3()
