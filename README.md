@@ -1,7 +1,7 @@
 # Laravel-Nicovideo
 
-[![Build Status](https://circleci.com/gh/shimomo/laravel-nicovideo.svg?style=shield&circle-token=3559169f059fb9748a97d6ed2567a123c0683e87)](https://circleci.com/gh/shimomo/circleci-ansible-serverspec)
-[![MIT License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE.md)
+[![Build Status](https://circleci.com/gh/shimomo/laravel-nicovideo.svg?style=shield&circle-token=3559169f059fb9748a97d6ed2567a123c0683e87)](https://circleci.com/gh/shimomo/laravel-nicovideo)
+[![MIT License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE)
 
 ## Install
 Install via Composer.
@@ -45,7 +45,7 @@ use App\Http\Controllers\Controller;
 class ExampleController extends Controller
 {
     /**
-     * @return string
+     * @return int
      */
     public function test()
     {
@@ -63,7 +63,7 @@ class ExampleController extends Controller
 
         // Do something for $result.
 
-        return 'ok';
+        return $result['meta']['status'];
     }
 }
 ```
