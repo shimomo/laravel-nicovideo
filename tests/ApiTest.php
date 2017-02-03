@@ -43,6 +43,16 @@ class ApiTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @return void
+     */
+    public function testSimpleSearch1()
+    {
+        $data = $this->api->simpleSearch('video', '初音ミク');
+
+        $this->assertTrue(is_array($data));
+    }
+
+    /**
      * @expectedException InvalidArgumentException
      * @return void
      */

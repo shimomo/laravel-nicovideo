@@ -68,4 +68,25 @@ class Api
 
         return json_decode($response->getBody(), true);
     }
+
+    /**
+     * コンテンツを簡単検索
+     *
+     * @param  string $service
+     * @param  string $q
+     * @return array
+     */
+    public function simpleSearch(string $service, string $q)
+    {
+        return $this->search([
+            'service' => $service,
+            'q' => $q,
+            'targets' => 'title,description,tags',
+            'fields' => 'contentId,title,description,tags,categoryTags,viewCounter,mylistCounter,commentCounter,startTime',
+            '_sort' => '-viewCounter',
+            '_offset' => 0,
+            '_limit' => 100,
+            '_context' => 'Laravel Nicovideo',
+        ]);
+    }
 }
