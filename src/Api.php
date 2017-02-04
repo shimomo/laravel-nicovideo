@@ -12,7 +12,7 @@ use InvalidArgumentException;
 class Api
 {
     /**
-     * コンテンツ検索APIのベースとなるURL
+     * APIのベースとなるURL
      *
      * @var string
      */
@@ -88,5 +88,66 @@ class Api
             '_limit' => 100,
             '_context' => 'Laravel Nicovideo',
         ]);
+    }
+
+    /**
+     * 検索対象のフィールドを変換
+     *
+     * @param  string $targets
+     * @return string
+     */
+    protected function transformTargets(string $targets)
+    {
+        if ($targets === 'tags') {
+            return 'tagsExact';
+        }
+
+        return 'title,description,tags';
+    }
+
+    /**
+     * ソート方向の記号を変換
+     *
+     * @param  string $order
+     * @return string
+     */
+    protected function transformOrder(string $order)
+    {
+        if ($order === 'asc') {
+            return '+';
+        }
+
+        return '-';
+    }
+
+    /**
+     * ソート対象のフィールド名を変換
+     *
+     * @param  string $sort
+     * @return string
+     */
+    protected function transformSort(string $sort)
+    {
+        if ($sort === 'mylist' || $sort === 'mylistCounter') {
+            return 'mylistCounter';
+        }
+
+        if ($sort === 'comment' || $sort === 'commentCounter') {
+            return 'commentCounter';
+        }
+
+        if ($sort === 'start' || $sort === 'startTime') {
+            return 'startTime';
+        }
+
+        if ($sort === 'thumbnail' || $sort === 'thumbnailUrl') {
+            return 'thumbnailUrl';
+        }
+
+        if ($sort === 'score' || $sort === 'scoreTimeshiftReserved') {
+            return 'scoreTimeshiftReserved';
+        }
+
+        return 'viewCounter';
     }
 }
