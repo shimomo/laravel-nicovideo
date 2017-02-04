@@ -91,6 +91,30 @@ class Api
     }
 
     /**
+     * ビデオコンテンツを検索
+     *
+     * @param  string $q
+     * @param  string $targets
+     * @return array
+     */
+    public function videoSearch(string $q, string $targets = null, string $order = null, string $sort = null)
+    {
+        $targets = $this->transformTargets($targets ?? '');
+        $sort = $this->transformOrder($order ?? '') . $this->transformSort($sort ?? '');
+
+        return $this->search([
+            'service' => 'video',
+            'q' => $q,
+            'targets' => $targets,
+            'fields' => 'contentId,title,description,tags,categoryTags,viewCounter,mylistCounter,commentCounter,startTime',
+            '_sort' => $sort,
+            '_offset' => 0,
+            '_limit' => 100,
+            '_context' => 'Laravel Nicovideo',
+        ]);
+    }
+
+    /**
      * 検索対象のフィールドを変換
      *
      * @param  string $targets

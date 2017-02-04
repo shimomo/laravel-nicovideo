@@ -53,6 +53,126 @@ class ApiTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @return void
+     */
+    public function testVideoSearch1()
+    {
+        $data = $this->api->videoSearch('初音ミク', 'keywords', 'desc', 'view');
+
+        $this->assertTrue(is_array($data));
+    }
+
+    /**
+     * @return void
+     */
+    public function testVideoSearch2()
+    {
+        $data = $this->api->videoSearch('初音ミク', 'keywords', 'desc', 'view');
+
+        $this->assertSame(200, $data['meta']['status']);
+    }
+
+    /**
+     * @return void
+     */
+    public function testVideoSearch3()
+    {
+        $data = $this->api->videoSearch('初音ミク', 'keywords', 'desc', 'view');
+
+        $this->assertSame(100, count($data['data']));
+    }
+
+    /**
+     * @return void
+     */
+    public function testVideoSearch4()
+    {
+        $data = $this->api->videoSearch('初音ミク', 'keywords', 'desc');
+
+        $this->assertTrue(is_array($data));
+    }
+
+    /**
+     * @return void
+     */
+    public function testVideoSearch5()
+    {
+        $data = $this->api->videoSearch('初音ミク', 'keywords', 'desc');
+
+        $this->assertSame(200, $data['meta']['status']);
+    }
+
+    /**
+     * @return void
+     */
+    public function testVideoSearch6()
+    {
+        $data = $this->api->videoSearch('初音ミク', 'keywords', 'desc');
+
+        $this->assertSame(100, count($data['data']));
+    }
+
+    /**
+     * @return void
+     */
+    public function testVideoSearch7()
+    {
+        $data = $this->api->videoSearch('初音ミク', 'keywords');
+
+        $this->assertTrue(is_array($data));
+    }
+
+    /**
+     * @return void
+     */
+    public function testVideoSearch8()
+    {
+        $data = $this->api->videoSearch('初音ミク', 'keywords');
+
+        $this->assertSame(200, $data['meta']['status']);
+    }
+
+    /**
+     * @return void
+     */
+    public function testVideoSearch9()
+    {
+        $data = $this->api->videoSearch('初音ミク', 'keywords');
+
+        $this->assertSame(100, count($data['data']));
+    }
+
+    /**
+     * @return void
+     */
+    public function testVideoSearch10()
+    {
+        $data = $this->api->videoSearch('初音ミク');
+
+        $this->assertTrue(is_array($data));
+    }
+
+    /**
+     * @return void
+     */
+    public function testVideoSearch11()
+    {
+        $data = $this->api->videoSearch('初音ミク');
+
+        $this->assertSame(200, $data['meta']['status']);
+    }
+
+    /**
+     * @return void
+     */
+    public function testVideoSearch12()
+    {
+        $data = $this->api->videoSearch('初音ミク', 'keywords');
+
+        $this->assertSame(100, count($data['data']));
+    }
+
+    /**
      * @expectedException InvalidArgumentException
      * @return void
      */
