@@ -51,9 +51,8 @@ class ExampleController extends Controller
     /**
      * @return int
      */
-    public function test()
+    public function search()
     {
-        // Default search.
         $searchResult = \Nicovideo::search([
             'service' => 'video',
             'q' => '初音ミク',
@@ -65,14 +64,9 @@ class ExampleController extends Controller
             '_limit' => 3,
             '_context' => 'apiguide',
         ]);
-
-        // Simple search.
         $simpleSearchResult = \Nicovideo::simpleSearch('video', '初音ミク');
-
-        // Video search.
         $videoSearchResult = \Nicovideo::videoSearch('初音ミク', 'keywords', 'desc', 'view');
 
-        // Do something.
         return $searchResult['meta']['status'];
     }
 }
