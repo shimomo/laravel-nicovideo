@@ -7,7 +7,7 @@ dependencies:
   override:
     - mkdir -p build/logs
     - composer install --prefer-dist --no-interaction
-    - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
+    - sed -i 's/^;//' /opt/circleci/php/$(phpenv global)/etc/conf.d/xdebug.ini
 
 test:
   override:
