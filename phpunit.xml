@@ -16,6 +16,10 @@
     <filter>
         <whitelist>
             <directory>./src</directory>
+            <exclude>
+                <file>./src/ApiFacade.php</file>
+                <file>./src/ApiServiceProvider.php</file>
+            </exclude>
         </whitelist>
     </filter>
     <logging>
