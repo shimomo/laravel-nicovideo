@@ -173,6 +173,56 @@ class ApiTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @return void
+     */
+    public function testVideoSearch13()
+    {
+        $data = $this->api->videoSearch('初音ミク', 'keywords', 'desc', 'mylist');
+
+        $this->assertTrue(is_array($data));
+    }
+
+    /**
+     * @return void
+     */
+    public function testVideoSearch14()
+    {
+        $data = $this->api->videoSearch('初音ミク', 'keywords', 'desc', 'comment');
+
+        $this->assertTrue(is_array($data));
+    }
+
+    /**
+     * @return void
+     */
+    public function testVideoSearch15()
+    {
+        $data = $this->api->videoSearch('初音ミク', 'keywords', 'desc', 'start');
+
+        $this->assertTrue(is_array($data));
+    }
+
+    /**
+     * @return void
+     */
+    public function testVideoSearch16()
+    {
+        $data = $this->api->videoSearch('初音ミク', 'keywords', 'asc', 'view');
+
+        $this->assertTrue(is_array($data));
+    }
+
+    /**
+     * @return void
+     */
+    public function testVideoSearch17()
+    {
+        $data = $this->api->videoSearch('初音ミク', 'tags', 'asc', 'view');
+
+        $this->assertTrue(is_array($data));
+    }
+
+    /**
      * @expectedException InvalidArgumentException
      * @return void
      */
