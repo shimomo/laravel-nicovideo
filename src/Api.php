@@ -93,17 +93,34 @@ class Api
     /**
      * ビデオコンテンツを検索
      *
-     * @param  string $q
-     * @param  string $targets
+     * @param  string      $q
+     * @param  string|null $targets
+     * @param  string|null $order
+     * @param  string|null $sort
      * @return array
      */
     public function videoSearch(string $q, string $targets = null, string $order = null, string $sort = null)
+    {
+        return $this->baseSearch('video', $q, $targets, $order, $sort);
+    }
+
+    /**
+     * 各種コンテンツの検索メソッドを集約
+     *
+     * @param  string      $service
+     * @param  string      $q
+     * @param  string|null $targets
+     * @param  string|null $order
+     * @param  string|null $sort
+     * @return array
+     */
+    protected function baseSearch(string $service, string $q, string $targets = null, string $order = null, string $sort = null)
     {
         $targets = $this->transformTargets($targets ?? '');
         $sort = $this->transformOrder($order ?? '') . $this->transformSort($sort ?? '');
 
         return $this->search([
-            'service' => 'video',
+            'service' => $service,
             'q' => $q,
             'targets' => $targets,
             'fields' => 'contentId,title,description,tags,categoryTags,viewCounter,mylistCounter,commentCounter,startTime',
