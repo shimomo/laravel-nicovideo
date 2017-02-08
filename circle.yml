@@ -5,7 +5,9 @@ machine:
 
 dependencies:
   override:
+    - mkdir -p build/logs
     - composer install --prefer-dist --no-interaction
+    - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
 
 test:
   override:

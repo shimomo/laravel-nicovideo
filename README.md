@@ -1,6 +1,7 @@
 # Laravel-Nicovideo
 
 [![Build Status](https://circleci.com/gh/shimomo/laravel-nicovideo.svg?style=shield&circle-token=3559169f059fb9748a97d6ed2567a123c0683e87)](https://circleci.com/gh/shimomo/laravel-nicovideo)
+[![Coverage Status](https://coveralls.io/repos/github/shimomo/laravel-nicovideo/badge.svg)](https://coveralls.io/github/shimomo/laravel-nicovideo)
 [![Latest Stable Version](https://poser.pugx.org/shimomo/laravel-nicovideo/version)](https://packagist.org/packages/shimomo/laravel-nicovideo)
 [![Total Downloads](https://poser.pugx.org/shimomo/laravel-nicovideo/downloads)](https://packagist.org/packages/shimomo/laravel-nicovideo)
 [![Dependency Status](https://www.versioneye.com/user/projects/5899f0dba86053003a728c16/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5899f0dba86053003a728c16)
@@ -52,7 +53,7 @@ class ExampleController extends Controller
      */
     public function test()
     {
-        // Default search
+        // Default search.
         $searchResult = \Nicovideo::search([
             'service' => 'video',
             'q' => '初音ミク',
@@ -65,14 +66,13 @@ class ExampleController extends Controller
             '_context' => 'apiguide',
         ]);
 
-        // Simple search
+        // Simple search.
         $simpleSearchResult = \Nicovideo::simpleSearch('video', '初音ミク');
 
-        // Video search
+        // Video search.
         $videoSearchResult = \Nicovideo::videoSearch('初音ミク', 'keywords', 'desc', 'view');
 
         // Do something.
-
         return $searchResult['meta']['status'];
     }
 }
