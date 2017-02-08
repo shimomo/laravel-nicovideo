@@ -5,10 +5,12 @@ machine:
 
 dependencies:
   override:
-    - mkdir -p build/logs
+    - mkdir -p ./build/logs
     - composer install --prefer-dist --no-interaction
     - sed -i 's/^;//' /opt/circleci/php/$(phpenv global)/etc/conf.d/xdebug.ini
 
 test:
   override:
     - ./vendor/bin/phpunit
+  post:
+    - ./vendor/bin/coveralls -v --exclude-no-stmt
