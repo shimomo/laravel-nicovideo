@@ -12,7 +12,7 @@ class ExampleController extends Controller
     /**
      * @return void
      */
-    public function test()
+    public function search()
     {
         $result = \Nicovideo::search([
             'service' => 'video',

@@ -11,4 +11,4 @@
 |
 */
 
-Route::get('/', 'ExampleController@test');
+Route::get('/', 'ExampleController@search');
