@@ -7,7 +7,7 @@
 [![Dependency Status](https://www.versioneye.com/user/projects/5899f0dba86053003a728c16/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5899f0dba86053003a728c16)
 [![MIT License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE)
 
-## Install
+## Installation
 Install via Composer.
 ```
 $ composer require shimomo/laravel-nicovideo
