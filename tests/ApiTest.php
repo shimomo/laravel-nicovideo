@@ -217,9 +217,39 @@ class ApiTest extends PHPUnit_Framework_TestCase
      */
     public function testVideoSearch17()
     {
-        $data = $this->api->videoSearch('初音ミク', 'tags', 'asc', 'view');
+        $data = $this->api->videoSearch('初音ミク', 'tags', 'desc', 'view');
 
         $this->assertTrue(is_array($data));
+    }
+
+    /**
+     * @return void
+     */
+    public function testLiveSearch1()
+    {
+        $data = $this->api->liveSearch('クルーズ', 'keywords', 'desc', 'score');
+
+        $this->assertTrue(is_array($data));
+    }
+
+    /**
+     * @return void
+     */
+    public function testLiveSearch2()
+    {
+        $data = $this->api->liveSearch('クルーズ', 'keywords', 'desc', 'score');
+
+        $this->assertSame(200, $data['meta']['status']);
+    }
+
+    /**
+     * @return void
+     */
+    public function testLiveSearch3()
+    {
+        $data = $this->api->liveSearch('クルーズ', 'keywords', 'desc', 'score');
+
+        $this->assertSame(100, count($data['data']));
     }
 
     /**

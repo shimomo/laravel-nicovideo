@@ -105,6 +105,20 @@ class Api
     }
 
     /**
+     * 生放送コンテンツを検索
+     *
+     * @param  string      $q
+     * @param  string|null $targets
+     * @param  string|null $order
+     * @param  string|null $sort
+     * @return array
+     */
+    public function liveSearch(string $q, string $targets = null, string $order = null, string $sort = null)
+    {
+        return $this->baseSearch('live', $q, $targets, $order, $sort);
+    }
+
+    /**
      * 各種コンテンツの検索メソッドを集約
      *
      * @param  string      $service
@@ -155,6 +169,10 @@ class Api
      */
     protected function transformFields(string $service)
     {
+        if ($service === 'live') {
+            return 'contentId,title,description,tags,categoryTags,viewCounter,commentCounter,startTime';
+        }
+
         return 'contentId,title,description,tags,categoryTags,viewCounter,mylistCounter,commentCounter,startTime';
     }
 
