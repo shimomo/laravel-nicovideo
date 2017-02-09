@@ -91,7 +91,7 @@ class Api
     }
 
     /**
-     * ビデオコンテンツを検索
+     * 動画コンテンツを検索
      *
      * @param  string      $q
      * @param  string|null $targets
@@ -117,13 +117,14 @@ class Api
     protected function baseSearch(string $service, string $q, string $targets = null, string $order = null, string $sort = null)
     {
         $targets = $this->transformTargets($targets ?? '');
+        $fields = $this->transformFields($service);
         $sort = $this->transformOrder($order ?? '') . $this->transformSort($sort ?? '');
 
         return $this->search([
             'service' => $service,
             'q' => $q,
             'targets' => $targets,
-            'fields' => 'contentId,title,description,tags,categoryTags,viewCounter,mylistCounter,commentCounter,startTime',
+            'fields' => $fields,
             '_sort' => $sort,
             '_offset' => 0,
             '_limit' => 100,
@@ -144,6 +145,17 @@ class Api
         }
 
         return 'title,description,tags';
+    }
+
+    /**
+     * 取得対象のフィールドを変換
+     *
+     * @param  string $service
+     * @return string
+     */
+    protected function transformFields(string $service)
+    {
+        return 'contentId,title,description,tags,categoryTags,viewCounter,mylistCounter,commentCounter,startTime';
     }
 
     /**
