@@ -28,15 +28,15 @@ class ApiTest extends PHPUnit_Framework_TestCase
     public function testSearch1()
     {
         $data = $this->api->search([
-            'service' => 'video',
-            'q' => '初音ミク',
-            'targets' => 'title',
-            'fields' => 'contentId,title,viewCounter',
+            'service'                   => 'video',
+            'q'                         => '初音ミク',
+            'targets'                   => 'title',
+            'fields'                    => 'contentId,title,viewCounter',
             'filters[viewCounter][gte]' => '10000',
-            '_sort' => '-viewCounter',
-            '_offset' => 0,
-            '_limit' => 3,
-            '_context' => 'apiguide',
+            '_sort'                     => '-viewCounter',
+            '_offset'                   => 0,
+            '_limit'                    => 3,
+            '_context'                  => 'apiguide',
         ]);
 
         $this->assertTrue(is_array($data));
@@ -259,14 +259,14 @@ class ApiTest extends PHPUnit_Framework_TestCase
     public function testException1()
     {
         $this->api->search([
-            'q' => '初音ミク',
-            'targets' => 'title',
-            'fields' => 'contentId,title,viewCounter',
+            'q'                         => '初音ミク',
+            'targets'                   => 'title',
+            'fields'                    => 'contentId,title,viewCounter',
             'filters[viewCounter][gte]' => '10000',
-            '_sort' => '-viewCounter',
-            '_offset' => 0,
-            '_limit' => 3,
-            '_context' => 'apiguide',
+            '_sort'                     => '-viewCounter',
+            '_offset'                   => 0,
+            '_limit'                    => 3,
+            '_context'                  => 'apiguide',
         ]);
     }
 
@@ -277,14 +277,14 @@ class ApiTest extends PHPUnit_Framework_TestCase
     public function testException2()
     {
         $this->api->search([
-            'service' => 'video',
-            'targets' => 'title',
-            'fields' => 'contentId,title,viewCounter',
+            'service'                   => 'video',
+            'targets'                   => 'title',
+            'fields'                    => 'contentId,title,viewCounter',
             'filters[viewCounter][gte]' => '10000',
-            '_sort' => '-viewCounter',
-            '_offset' => 0,
-            '_limit' => 3,
-            '_context' => 'apiguide',
+            '_sort'                     => '-viewCounter',
+            '_offset'                   => 0,
+            '_limit'                    => 3,
+            '_context'                  => 'apiguide',
         ]);
     }
 
@@ -295,14 +295,14 @@ class ApiTest extends PHPUnit_Framework_TestCase
     public function testException3()
     {
         $this->api->search([
-            'service' => 'video',
-            'q' => '初音ミク',
-            'fields' => 'contentId,title,viewCounter',
+            'service'                   => 'video',
+            'q'                         => '初音ミク',
+            'fields'                    => 'contentId,title,viewCounter',
             'filters[viewCounter][gte]' => '10000',
-            '_sort' => '-viewCounter',
-            '_offset' => 0,
-            '_limit' => 3,
-            '_context' => 'apiguide',
+            '_sort'                     => '-viewCounter',
+            '_offset'                   => 0,
+            '_limit'                    => 3,
+            '_context'                  => 'apiguide',
         ]);
     }
 
@@ -313,14 +313,14 @@ class ApiTest extends PHPUnit_Framework_TestCase
     public function testException4()
     {
         $this->api->search([
-            'service' => 'video',
-            'q' => '初音ミク',
-            'targets' => 'title',
+            'service'                   => 'video',
+            'q'                         => '初音ミク',
+            'targets'                   => 'title',
             'filters[viewCounter][gte]' => '10000',
-            '_sort' => '-viewCounter',
-            '_offset' => 0,
-            '_limit' => 3,
-            '_context' => 'apiguide',
+            '_sort'                     => '-viewCounter',
+            '_offset'                   => 0,
+            '_limit'                    => 3,
+            '_context'                  => 'apiguide',
         ]);
     }
 
@@ -331,14 +331,14 @@ class ApiTest extends PHPUnit_Framework_TestCase
     public function testException5()
     {
         $this->api->search([
-            'service' => 'video',
-            'q' => '初音ミク',
-            'targets' => 'title',
-            'fields' => 'contentId,title,viewCounter',
+            'service'                   => 'video',
+            'q'                         => '初音ミク',
+            'targets'                   => 'title',
+            'fields'                    => 'contentId,title,viewCounter',
             'filters[viewCounter][gte]' => '10000',
-            '_offset' => 0,
-            '_limit' => 3,
-            '_context' => 'apiguide',
+            '_offset'                   => 0,
+            '_limit'                    => 3,
+            '_context'                  => 'apiguide',
         ]);
     }
 }

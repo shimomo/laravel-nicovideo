@@ -79,13 +79,13 @@ class Api
     public function simpleSearch(string $service, string $q)
     {
         return $this->search([
-            'service' => $service,
-            'q' => $q,
-            'targets' => 'title,description,tags',
-            'fields' => 'contentId,title,description,tags,categoryTags,viewCounter,mylistCounter,commentCounter,startTime',
-            '_sort' => '-viewCounter',
-            '_offset' => 0,
-            '_limit' => 100,
+            'service'  => $service,
+            'q'        => $q,
+            'targets'  => 'title,description,tags',
+            'fields'   => 'contentId,title,description,tags,categoryTags,viewCounter,mylistCounter,commentCounter,startTime',
+            '_sort'    => '-viewCounter',
+            '_offset'  => 0,
+            '_limit'   => 100,
             '_context' => 'Laravel Nicovideo',
         ]);
     }
@@ -135,13 +135,13 @@ class Api
         $sort = $this->transformOrder($order ?? '') . $this->transformSort($sort ?? '');
 
         return $this->search([
-            'service' => $service,
-            'q' => $q,
-            'targets' => $targets,
-            'fields' => $fields,
-            '_sort' => $sort,
-            '_offset' => 0,
-            '_limit' => 100,
+            'service'  => $service,
+            'q'        => $q,
+            'targets'  => $targets,
+            'fields'   => $fields,
+            '_sort'    => $sort,
+            '_offset'  => 0,
+            '_limit'   => 100,
             '_context' => 'Laravel Nicovideo',
         ]);
     }
