@@ -211,10 +211,6 @@ class Api
             return 'startTime';
         }
 
-        if ($sort === 'thumbnail' || $sort === 'thumbnailUrl') {
-            return 'thumbnailUrl';
-        }
-
         if ($sort === 'score' || $sort === 'scoreTimeshiftReserved') {
             return 'scoreTimeshiftReserved';
         }
