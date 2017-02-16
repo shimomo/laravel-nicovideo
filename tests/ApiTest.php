@@ -2,12 +2,13 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
+use PHPUnit\Framework\TestCase;
 use Shimomo\Nicovideo\Api;
 
 /**
  * @author shimomo
  */
-class ApiTest extends PHPUnit_Framework_TestCase
+class ApiTest extends TestCase
 {
     /**
      * @var Api
