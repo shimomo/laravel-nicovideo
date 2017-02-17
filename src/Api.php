@@ -131,8 +131,8 @@ class Api
     protected function baseSearch(string $service, string $q, string $targets = null, string $order = null, string $sort = null)
     {
         $targets = $this->transformTargets($targets ?? '');
-        $fields = $this->transformFields($service);
-        $sort = $this->transformOrder($order ?? '') . $this->transformSort($sort ?? '');
+        $fields  = $this->transformFields($service);
+        $sort    = $this->transformOrder($order ?? '') . $this->transformSort($sort ?? '');
 
         return $this->search([
             'service'  => $service,
