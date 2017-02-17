@@ -54,18 +54,20 @@ class ExampleController extends Controller
     public function search()
     {
         $searchResult = \Nicovideo::search([
-            'service' => 'video',
-            'q' => '初音ミク',
-            'targets' => 'title',
-            'fields' => 'contentId,title,viewCounter',
+            'service'                   => 'video',
+            'q'                         => '初音ミク',
+            'targets'                   => 'title',
+            'fields'                    => 'contentId,title,viewCounter',
             'filters[viewCounter][gte]' => '10000',
-            '_sort' => '-viewCounter',
-            '_offset' => 0,
-            '_limit' => 3,
-            '_context' => 'apiguide',
+            '_sort'                     => '-viewCounter',
+            '_offset'                   => 0,
+            '_limit'                    => 3,
+            '_context'                  => 'apiguide',
         ]);
+
         $simpleSearchResult = \Nicovideo::simpleSearch('video', '初音ミク');
-        $videoSearchResult = \Nicovideo::videoSearch('初音ミク', 'keywords', 'desc', 'view');
+        $videoSearchResult  = \Nicovideo::videoSearch('初音ミク', 'keywords', 'desc', 'view');
+        $liveSearchResult   = \Nicovideo::liveSearch('クルーズ', 'keywords', 'desc', 'score');
 
         return $searchResult['meta']['status'];
     }
