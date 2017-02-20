@@ -119,6 +119,20 @@ class Api
     }
 
     /**
+     * イラストコンテンツを検索
+     *
+     * @param  string      $q
+     * @param  string|null $targets
+     * @param  string|null $order
+     * @param  string|null $sort
+     * @return array
+     */
+    public function illustSearch(string $q, string $targets = null, string $order = null, string $sort = null)
+    {
+        return $this->baseSearch('illust', $q, $targets, $order, $sort);
+    }
+
+    /**
      * 各種コンテンツの検索メソッドを集約
      *
      * @param  string      $service
@@ -171,6 +185,10 @@ class Api
     {
         if ($service === 'live') {
             return 'contentId,title,description,tags,categoryTags,viewCounter,commentCounter,startTime';
+        }
+
+        if ($service === 'illust') {
+            return 'contentId,title,description,tags,categoryTags,viewCounter,mylistCounter,commentCounter,startTime,thumbnailUrl';
         }
 
         return 'contentId,title,description,tags,categoryTags,viewCounter,mylistCounter,commentCounter,startTime';

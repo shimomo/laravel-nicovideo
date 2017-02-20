@@ -254,6 +254,36 @@ class ApiTest extends TestCase
     }
 
     /**
+     * @return void
+     */
+    public function testIllustSearch1()
+    {
+        $data = $this->api->illustSearch('初音ミク', 'keywords', 'desc', 'view');
+
+        $this->assertTrue(is_array($data));
+    }
+
+    /**
+     * @return void
+     */
+    public function testIllustSearch2()
+    {
+        $data = $this->api->illustSearch('初音ミク', 'keywords', 'desc', 'view');
+
+        $this->assertSame(200, $data['meta']['status']);
+    }
+
+    /**
+     * @return void
+     */
+    public function testIllustSearch3()
+    {
+        $data = $this->api->illustSearch('初音ミク', 'keywords', 'desc', 'view');
+
+        $this->assertSame(100, count($data['data']));
+    }
+
+    /**
      * @expectedException InvalidArgumentException
      * @return void
      */
