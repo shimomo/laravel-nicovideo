@@ -1,4 +1,4 @@
-# Laravel-Nicovideo
+# Laravel Nicovideo
 
 [![Build Status](https://circleci.com/gh/shimomo/laravel-nicovideo.svg?style=shield&circle-token=3559169f059fb9748a97d6ed2567a123c0683e87)](https://circleci.com/gh/shimomo/laravel-nicovideo)
 [![Coverage Status](https://coveralls.io/repos/github/shimomo/laravel-nicovideo/badge.svg)](https://coveralls.io/github/shimomo/laravel-nicovideo)
@@ -67,7 +67,7 @@ class ExampleController extends Controller
 
         $simpleSearchResult = \Nicovideo::simpleSearch('video', '初音ミク');
         $videoSearchResult  = \Nicovideo::videoSearch('初音ミク', 'keywords', 'desc', 'view');
-        $liveSearchResult   = \Nicovideo::liveSearch('クルーズ', 'keywords', 'desc', 'score');
+        $liveSearchResult   = \Nicovideo::liveSearch('初音ミク', 'keywords', 'desc', 'view');
         $illustSearchResult = \Nicovideo::illustSearch('初音ミク', 'keywords', 'desc', 'view');
 
         return $searchResult['meta']['status'];
@@ -76,7 +76,7 @@ class ExampleController extends Controller
 ```
 
 ## Official
-Please see the [official document](http://search.nicovideo.jp/docs/api/search.html) for details.
+Please look at the [official document](http://search.nicovideo.jp/docs/api/search.html) for details.
 
 ## License
-Laravel-Nicovideo is open-sourced software licensed under the [MIT license](LICENSE).
+laravel-nicovideo is open-sourced software licensed under the [MIT license](LICENSE).
