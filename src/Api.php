@@ -82,7 +82,7 @@ class Api
             'service'  => $service,
             'q'        => $q,
             'targets'  => 'title,description,tags',
-            'fields'   => 'contentId,title,description,tags,categoryTags,viewCounter,mylistCounter,commentCounter,startTime',
+            'fields'   => 'contentId,title,description,tags,categoryTags,viewCounter,commentCounter,startTime',
             '_sort'    => '-viewCounter',
             '_offset'  => 0,
             '_limit'   => 100,
@@ -101,6 +101,10 @@ class Api
      */
     public function videoSearch(string $q, string $targets = null, string $order = null, string $sort = null)
     {
+        if ($sort === 'thumbnail' || $sort === 'thumbnailUrl' || $sort === 'score' || $sort === 'scoreTimeshiftReserved') {
+            throw new InvalidArgumentException('[' . $sort . '] Can not be specified.');
+        }
+
         return $this->baseSearch('video', $q, $targets, $order, $sort);
     }
 
@@ -115,6 +119,10 @@ class Api
      */
     public function liveSearch(string $q, string $targets = null, string $order = null, string $sort = null)
     {
+        if ($sort === 'mylist' || $sort === 'mylistCounter' || $sort === 'thumbnail' || $sort === 'thumbnailUrl') {
+            throw new InvalidArgumentException('[' . $sort . '] Can not be specified.');
+        }
+
         return $this->baseSearch('live', $q, $targets, $order, $sort);
     }
 
@@ -129,6 +137,10 @@ class Api
      */
     public function illustSearch(string $q, string $targets = null, string $order = null, string $sort = null)
     {
+        if ($sort === 'thumbnail' || $sort === 'thumbnailUrl' || $sort === 'score' || $sort === 'scoreTimeshiftReserved') {
+            throw new InvalidArgumentException('[' . $sort . '] Can not be specified.');
+        }
+
         return $this->baseSearch('illust', $q, $targets, $order, $sort);
     }
 
@@ -227,6 +239,10 @@ class Api
 
         if ($sort === 'start' || $sort === 'startTime') {
             return 'startTime';
+        }
+
+        if ($sort === 'thumbnail' || $sort === 'thumbnailUrl') {
+            return 'thumbnailUrl';
         }
 
         if ($sort === 'score' || $sort === 'scoreTimeshiftReserved') {
