@@ -67,7 +67,7 @@ class ExampleController extends Controller
 
         $simpleSearchResult = \Nicovideo::simpleSearch('video', '初音ミク');
         $videoSearchResult  = \Nicovideo::videoSearch('初音ミク', 'keywords', 'desc', 'view');
-        $liveSearchResult   = \Nicovideo::liveSearch('クルーズ', 'keywords', 'desc', 'score');
+        $liveSearchResult   = \Nicovideo::liveSearch('初音ミク', 'keywords', 'desc', 'view');
         $illustSearchResult = \Nicovideo::illustSearch('初音ミク', 'keywords', 'desc', 'view');
 
         return $searchResult['meta']['status'];
