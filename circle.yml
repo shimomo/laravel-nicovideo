@@ -2,13 +2,11 @@ machine:
   timezone: Asia/Tokyo
   php:
     version: 7.0.4
-
 dependencies:
   override:
     - mkdir -p ./build/logs
     - composer install --prefer-dist --no-interaction
     - sed -i 's/^;//' /opt/circleci/php/$(phpenv global)/etc/conf.d/xdebug.ini
-
 test:
   override:
     - ./vendor/bin/phpunit
