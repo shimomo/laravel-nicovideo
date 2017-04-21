@@ -11,7 +11,7 @@ class ApiFacade extends Facade
 {
     /**
      * コンポーネントの登録名を取得
-     * 
+     *
      * @return string
      */
     protected static function getFacadeAccessor()

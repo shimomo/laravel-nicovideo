@@ -517,19 +517,6 @@ class ApiTest extends TestCase
         $this->assertSame(200, $data['meta']['status']);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * @return void
      */
