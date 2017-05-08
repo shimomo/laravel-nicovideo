@@ -4,7 +4,6 @@
 [![Coverage Status](https://coveralls.io/repos/github/shimomo/laravel-nicovideo/badge.svg)](https://coveralls.io/github/shimomo/laravel-nicovideo)
 [![Latest Stable Version](https://poser.pugx.org/shimomo/laravel-nicovideo/version)](https://packagist.org/packages/shimomo/laravel-nicovideo)
 [![Total Downloads](https://poser.pugx.org/shimomo/laravel-nicovideo/downloads)](https://packagist.org/packages/shimomo/laravel-nicovideo)
-[![Dependency Status](https://www.versioneye.com/user/projects/5899f0dba86053003a728c16/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5899f0dba86053003a728c16)
 [![MIT License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE)
 
 ## Installation
@@ -41,6 +40,7 @@ return [
 
 namespace App\Http\Controllers;
 
+use Nicovideo;
 use App\Http\Controllers\Controller;
 
 /**
@@ -53,7 +53,7 @@ class ExampleController extends Controller
      */
     public function search()
     {
-        $searchResult = \Nicovideo::search([
+        $searchResult = Nicovideo::search([
             'service'                   => 'video',
             'q'                         => '初音ミク',
             'targets'                   => 'title',
@@ -65,10 +65,10 @@ class ExampleController extends Controller
             '_context'                  => 'apiguide',
         ]);
 
-        $simpleSearchResult = \Nicovideo::simpleSearch('video', '初音ミク');
-        $videoSearchResult  = \Nicovideo::videoSearch('初音ミク', 'keywords', 'desc', 'view');
-        $liveSearchResult   = \Nicovideo::liveSearch('初音ミク', 'keywords', 'desc', 'view');
-        $illustSearchResult = \Nicovideo::illustSearch('初音ミク', 'keywords', 'desc', 'view');
+        $simpleSearchResult = Nicovideo::simpleSearch('video', '初音ミク');
+        $videoSearchResult  = Nicovideo::videoSearch('初音ミク', 'keywords', 'desc', 'view');
+        $liveSearchResult   = Nicovideo::liveSearch('初音ミク', 'keywords', 'desc', 'view');
+        $illustSearchResult = Nicovideo::illustSearch('初音ミク', 'keywords', 'desc', 'view');
 
         return $searchResult['meta']['status'];
     }
@@ -79,4 +79,4 @@ class ExampleController extends Controller
 Please look at the [official document](http://search.nicovideo.jp/docs/api/search.html) for details.
 
 ## License
-laravel-nicovideo is open-sourced software licensed under the [MIT license](LICENSE).
+Laravel Nicovideo is open-sourced software licensed under the [MIT license](LICENSE).
